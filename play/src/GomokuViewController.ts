@@ -41,8 +41,8 @@ class GomokuViewController {
             let hour = date.getHours()
             let minute = date.getMinutes()
             let winner = item.actions[item.actions.length - 1].player == GomokuPlayer.Black
-                ? "玩家" : "AI"
-            this.dialogView.addItem(`${year}年${month}月${day}日-${hour}时${minute}分  ${winner}获胜`) //Todo
+                ? "Player" : "AI"
+            this.dialogView.addItem(`${year}/${month}/${day}-${hour}:${minute}分  ${winner}Win`) //Todo
         })
     }
 
@@ -50,7 +50,7 @@ class GomokuViewController {
         //Views
         this.gameView = new GomokuView(480, 480, this)
         this.menuView = new MenuView(480, 200, this)
-        this.menuView.statusMessage = "执黑子"
+        this.menuView.statusMessage = "Black turn"
         this.dialogView = new DialogView()
         
         //Models
@@ -101,9 +101,9 @@ class GomokuViewController {
             //游戏结束，显示结束信息
             let whiteWin, blackWin
             if (this.gameView.theme instanceof VividTheme) {
-                whiteWin = "青子胜"; blackWin = "蓝子胜"
+                whiteWin = "Grey chess win"; blackWin = "Blue chess win"
             } else {
-                whiteWin = "白子胜"; blackWin = "黑子胜"
+                whiteWin = "White chess win"; blackWin = "Black chess win"
             }
             this.menuView.statusMessage = this.gomokuGame.currentPlayer == 1 ? whiteWin : blackWin
             this.gomokuDB.add({
@@ -123,9 +123,9 @@ class GomokuViewController {
             this.drawChessSteps()
         }
         if (theme instanceof DefaultTheme) {
-            this.menuView.statusMessage = "执黑子"
+            this.menuView.statusMessage = "Black turn"
         } else if (theme instanceof VividTheme) {
-            this.menuView.statusMessage = "执蓝子"
+            this.menuView.statusMessage = "Blue turn"
         }
     }
 
