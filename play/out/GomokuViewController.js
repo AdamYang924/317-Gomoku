@@ -10,7 +10,7 @@ var GomokuViewController = (function () {
         //Views
         this.gameView = new GomokuView(480, 480, this);
         this.menuView = new MenuView(480, 200, this);
-        this.menuView.statusMessage = "执黑子";
+        this.menuView.statusMessage = "Black turn";
         this.dialogView = new DialogView();
         //Models
         this.gomokuGame = new GomokuGame();
@@ -59,7 +59,7 @@ var GomokuViewController = (function () {
             var hour = date.getHours();
             var minute = date.getMinutes();
             var winner = item.actions[item.actions.length - 1].player == GomokuPlayer.Black
-                ? "玩家" : "AI";
+                ? "Player" : "AI";
             _this.dialogView.addItem(year + "\u5E74" + month + "\u6708" + day + "\u65E5-" + hour + "\u65F6" + minute + "\u5206  " + winner + "\u83B7\u80DC"); //Todo
         });
     };
@@ -92,12 +92,12 @@ var GomokuViewController = (function () {
             //游戏结束，显示结束信息
             var whiteWin = void 0, blackWin = void 0;
             if (this.gameView.theme instanceof VividTheme) {
-                whiteWin = "青子胜";
-                blackWin = "蓝子胜";
+                whiteWin = "Grey chess win";
+                blackWin = "Blue chess win";
             }
             else {
-                whiteWin = "白子胜";
-                blackWin = "黑子胜";
+                whiteWin = "Whilte chess win";
+                blackWin = "Black chess win";
             }
             this.menuView.statusMessage = this.gomokuGame.currentPlayer == 1 ? whiteWin : blackWin;
             this.gomokuDB.add({
@@ -116,10 +116,10 @@ var GomokuViewController = (function () {
             this.drawChessSteps();
         }
         if (theme instanceof DefaultTheme) {
-            this.menuView.statusMessage = "执黑子";
+            this.menuView.statusMessage = "Black turn";
         }
         else if (theme instanceof VividTheme) {
-            this.menuView.statusMessage = "执蓝子";
+            this.menuView.statusMessage = "Blue turn";
         }
     };
     /**
