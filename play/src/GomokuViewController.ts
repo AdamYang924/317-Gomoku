@@ -42,7 +42,7 @@ class GomokuViewController {
             let minute = date.getMinutes()
             let winner = item.actions[item.actions.length - 1].player == GomokuPlayer.Black
                 ? "Player" : "AI"
-            this.dialogView.addItem(`${year}/${month}/${day}-${hour}:${minute}分  ${winner}Win`) //Todo
+            this.dialogView.addItem(`${year}/${month}/${day}-${hour}:${minute}  ${winner}Win`) //Todo
         })
     }
 
