@@ -60,7 +60,7 @@ var GomokuViewController = (function () {
             var minute = date.getMinutes();
             var winner = item.actions[item.actions.length - 1].player == GomokuPlayer.Black
                 ? "Player" : "AI";
-            _this.dialogView.addItem(year + "/" + month + "/" + day + "-" + hour + ":" + minute + "  " + winner + "wins"); //Todo
+            _this.dialogView.addItem(year + "/" + month + "/" + day + "-" + hour + ":" + minute + "  " + winner + "_wins"); //Todo
         });
     };
     /**
